@@ -1,8 +1,14 @@
 const pool = require("../config/database");
 
-const getProdutos = async () => {
-    const result = await pool.query("SELECT * FROM produtos");
+const getProdutos = async (categoria) => {
+    if (!categoria) {
+        const result = await pool.query("SELECT * FROM produtos"
+        );
+        return result.rows;
+    } else {
+    const result = await pool.query("SELECT * FROM produtos WHERE categoria = $1", [categoria]);
     return result.rows;
+    }
 };
 
 const getProdutoById = async (id) => {

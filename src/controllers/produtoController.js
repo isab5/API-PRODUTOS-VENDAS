@@ -2,7 +2,8 @@ const produtoModel = require('../models/produtoModel');
 
 const getAllProdutos = async (req, res) => {
     try {
-        const produtos = await produtoModel.getProdutos();
+        const { categoria } = req.query;
+        const produtos = await produtoModel.getProdutos(categoria);
         res.json(produtos);
     } catch (error) {
         res.status(500).json({ message: "Erro ao buscar produtos." });
