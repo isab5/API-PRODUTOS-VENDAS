@@ -51,6 +51,7 @@ INSERT INTO produtos (nome, categoria, preco) VALUES
 ('Perfume masculino', 'Higiene', 49.99),
 ('Creme dental', 'Higiene', 6.99);
 
+
 CREATE TABLE vendas (
     id SERIAL PRIMARY KEY,
     produto_id INTEGER NOT NULL,
